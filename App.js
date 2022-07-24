@@ -2,6 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Welcome from "./components/Welcome.js";
 import SignUp from "./screens/signUp";
+import SignIn from "./screens/SignIn";
+
 // export default function App() {
 //   const names = ["Trung", "Thach", "Ngoc"];
 //   return (
@@ -15,14 +17,6 @@ import SignUp from "./screens/signUp";
 // }
 
 export default function App() {
-  return <SignUp />;
+  // return <SignUp />;
+  return <SignIn />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

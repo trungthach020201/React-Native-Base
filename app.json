@@ -4,12 +4,14 @@
     "slug": "newProject",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/flash.png",
+    "icon": "./assets/coffee.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/flash.png",
+      "image": "./assets/coffee.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FFFFFF"
+      "backgroundColor": "#eeeee",
+      "width":"100",
+      "height":"100"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,7 +24,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/flash.png",
+        "foregroundImage": "./assets/coffee.png",
         "backgroundColor": "#FFFFFF"
       }
     },

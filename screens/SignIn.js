@@ -6,7 +6,7 @@ import SubmitButton from "../components/auth/SubmitButton";
 import CircleLogo from "../components/auth/LogoCircle";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 // import axios from "axios";
-const SignUp = () => {
+const SignIn = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -21,18 +21,6 @@ const SignUp = () => {
       setLoading(false);
       return;
     }
-    if (password !== confirmpass) {
-      alert("Password and Confirm password should match");
-      setLoading(false);
-      return;
-    }
-    if (reg.test(email) === false) {
-      alert("This is not an email");
-      setLoading(false);
-      return false;
-    } else {
-      alert("Success full");
-    }
     try {
       const { data } = {};
     } catch (err) {
@@ -41,19 +29,12 @@ const SignUp = () => {
   };
   return (
     <KeyboardAwareScrollView
-      contentContainerStyle={{ flex: 1, justifyContent: "center" }}
+      contentContainerStyle={{ flex: 1, marginTop: 120 }}
     >
       <CircleLogo />
       <Text title center color="#ff2222">
-        Sign up
+        Sign In
       </Text>
-      <UserInput
-        name="NAME"
-        value={name}
-        setValue={setName}
-        autoCapitalize="word"
-        autoCorrect={false}
-      />
       <UserInput
         name="EMAIL"
         value={email}
@@ -68,24 +49,20 @@ const SignUp = () => {
         secureTextEntry={true}
         autoCompleteType="password"
       />
-      <UserInput
-        name="CONFIRM PASSWORD"
-        value={confirmpass}
-        setValue={setConfirm}
-        secureTextEntry={true}
-        autoCompleteType="password"
-      />
 
       <SubmitButton
-        title="Sign Up"
+        title="Sign In"
         handleSubmit={handleSubmit}
         loading={loading}
       />
-      <Text center small style={{ marginTop: "10" }}>
-        Already Joined In? <Text color="#FF2222">Sign In</Text>
+      <Text center small style={{ marginTop: 20 }}>
+        Do not have account? <Text color="blue">Sign Up</Text>
+      </Text>
+      <Text small center color="#FF2222" style={{ marginTop: 10 }}>
+        Forget Password
       </Text>
     </KeyboardAwareScrollView>
   );
 };
 
-export default SignUp;
+export default SignIn;
