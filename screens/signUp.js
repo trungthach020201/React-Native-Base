@@ -6,7 +6,7 @@ import SubmitButton from "../components/auth/SubmitButton";
 import CircleLogo from "../components/auth/LogoCircle";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 // import axios from "axios";
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -29,7 +29,7 @@ const SignUp = () => {
     if (reg.test(email) === false) {
       alert("This is not an email");
       setLoading(false);
-      return false;
+      return;
     } else {
       alert("Success full");
     }
@@ -81,8 +81,11 @@ const SignUp = () => {
         handleSubmit={handleSubmit}
         loading={loading}
       />
-      <Text center small style={{ marginTop: "10" }}>
-        Already Joined In? <Text color="#FF2222">Sign In</Text>
+      <Text center small style={{ marginTop: 30 }}>
+        Already Joined In?{" "}
+        <Text onPress={() => navigation.navigate("SignIn")} color="#FF2222">
+          Sign In
+        </Text>
       </Text>
     </KeyboardAwareScrollView>
   );

@@ -6,20 +6,20 @@ import SubmitButton from "../components/auth/SubmitButton";
 import CircleLogo from "../components/auth/LogoCircle";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 // import axios from "axios";
-const SignIn = () => {
-  const [name, setName] = useState("");
+const SignIn = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
-  const [confirmpass, setConfirm] = useState("");
   const [loading, setLoading] = useState("");
 
   const handleSubmit = async () => {
     setLoading(true);
     let reg = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
-    if (!name || !email || !password || !confirmpass) {
+    if (!email || !password) {
       alert("All field should not be empty");
       setLoading(false);
       return;
+    } else {
+      alert("Loging....");
     }
     try {
       const { data } = {};
@@ -55,8 +55,11 @@ const SignIn = () => {
         handleSubmit={handleSubmit}
         loading={loading}
       />
-      <Text center small style={{ marginTop: 20 }}>
-        Do not have account? <Text color="blue">Sign Up</Text>
+      <Text center small style={{ marginTop: 70 }}>
+        Do not have account?{" "}
+        <Text onPress={() => navigation.navigate("SignUp")} color="blue">
+          Sign Up
+        </Text>
       </Text>
       <Text small center color="#FF2222" style={{ marginTop: 10 }}>
         Forget Password
