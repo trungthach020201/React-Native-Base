@@ -6,6 +6,8 @@ import SubmitButton from "../components/auth/SubmitButton";
 import CircleLogo from "../components/auth/LogoCircle";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import axios from "axios";
+import { API } from "../config";
+
 const SignIn = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -25,7 +27,7 @@ const SignIn = ({ navigation }) => {
     // }
     // console.log("SIGNUP REQUEST =>", email, password);
     try {
-      const { data } = await axios.post("http://localhost:8000/api/signin", {
+      const { data } = await axios.post(`${API}/signin`, {
         email,
         password,
       });
@@ -33,6 +35,7 @@ const SignIn = ({ navigation }) => {
       alert("Signin successfull");
       setLoading(false);
     } catch (err) {
+      alert("Signin fail");
       console.log(err);
       setLoading(false);
     }
@@ -71,7 +74,13 @@ const SignIn = ({ navigation }) => {
           Sign Up
         </Text>
       </Text>
-      <Text small center color="#FF2222" style={{ marginTop: 10 }}>
+      <Text
+        small
+        center
+        color="#FF2222"
+        style={{ marginTop: 10 }}
+        onPress={() => navigation.navigate("Test")}
+      >
         Forget Password
       </Text>
     </KeyboardAwareScrollView>
